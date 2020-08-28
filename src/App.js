@@ -1,26 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import data from './fakeData/Courses.js';
+import Header from './components/Header/Header';
+import Enroll from './components/Enroll/Enroll';
+
+
+
 
 function App() {
+
+  
+  const [onlines, setCourse] = useState([0, 10]);
+  
+
+  const handleAddCourse = (courseadd) =>{
+    console.log('Product added', courseadd);
+  }
+
+  useEffect(() =>{
+    setCourse(data);
+  }, []);
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div>
+
+      <Enroll></Enroll>
+
+     {
+       onlines.map(data => 
+       <Header handleAddCourse = {handleAddCourse}
+        name={data.name} 
+       price={data.price} 
+       author={data.author}>{data.name}</Header> )
+     } 
+
     </div>
-  );
+
+
+  )
 }
 
 export default App;

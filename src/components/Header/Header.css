@@ -1,0 +1,12 @@
+.header-area{
+    
+    border: 1px solid gray;
+    margin-top:20px;
+    width: 60%;
+    margin-left: 50px;
+    text-align:center;
+}
+
+.shop-cart{
+    float: right;
+}
